@@ -1,7 +1,7 @@
 # ICPC-North-America-Qualifier-2019
 
-## Team: Bartolommeo Petrini
-## Joe Walbran & Jubair Hassan
+### *Team: Bartolommeo Petrini*
+### *Joe Walbran & Jubair Hassan*
 
 ## Problem A
 ## Circuit Math
