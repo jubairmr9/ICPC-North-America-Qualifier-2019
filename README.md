@@ -59,12 +59,68 @@ Quido and Hugo are making a chocolate cake. The central ingredient of the cake i
 
 Let’s see how much chocolate we get to eat!”
 
-# Input
+### Input
 
-The input consists of two space-separated integers **M** and **N** given on a single line, (where **1≤M,N≤10^18**). The numbers **M** and **N** denote the number of blocks in one column and in one row, respectively, in the chocolate bar.
+The input consists of two space-separated integers **M** and **N** given on a single line, (where **1≤M,N≤10**<sup>**18**</sup>). The numbers **M** and **N** denote the number of blocks in one column and in one row, respectively, in the chocolate bar.
 
-# Output
+### Output
 
 Print the number of blocks of the chocolate bar which are cut into exactly two pieces of equal area.
 
 ![Image of Output2](/ProblemImages/B1.JPG)
+
+
+## Problem C
+## Gerrymandering
+
+Electoral systems across the world can vary widely. In some systems, such as *winner-take-all*, the winner is determined by the plurality of votes—the candidate that receives the most votes wins, and the loser(s) do not get a position.
+
+Such elections can have “wasted votes.” Conceptually, a wasted vote is a vote that did not affect the election outcome. While the exact definition of a wasted vote varies, we’ll adopt the following definition: in an election with **V** voters, every vote for a losing candidate is wasted (these are called lost votes), and every vote for a winning candidate beyond the strict majority of **⌊V/2⌋+1** votes the candidate needs to win is wasted (these are called excess votes). For this problem we’ll consider a two-party system (let’s call the parties A and B) with elections that always involve one candidate from each party.
+
+Let’s illustrate wasted votes with a simple example between two candidates in a district. Suppose that the candidate for party A receives **100** votes and the candidate for party B receives **200** votes. All **100** votes for party A are wasted (lost votes for A), and **49** votes for party B are wasted (excess votes for B). This is because B needs **151 (⌊(100+200)/2⌋+1)** votes to win (over A), so the remaining 49 are wasted.
+
+Political scientists use wasted votes to compute the efficiency gap, a single number that summarizes wasted votes. Suppose we have a number of races in different districts, where each district elects one person. Across all districts there are **V** total votes cast, with **w<sub>**A**</sub>** total wasted votes for party **A** and **w<sub>**B**</sub>** total wasted votes for party B. Then the efficiency gap is:
+
+![Image of Equation](/ProblemImages/C1.JPG)
+
+A low efficiency gap indicates that the elections are competitive, and that the number of candidates elected from each party is representative of the total voting share for each party. When the efficiency gap is high, this can be an indication of gerrymandering. Gerrymandering refers to organizing voting districts in a way that favors a particular political outcome. Two common ways of doing this are to “pack” similar voters into districts, or “crack” them across multiple districts; both ways tend to diminish those voters’ influence in electing candidates they would like to win.
+
+In an election, districts are made up of precincts. A precinct is an indivisible group of voters. The votes for all precincts in a district are added together to find the results for that district. In this problem you are given a description of a number of precincts: the party vote totals for each precinct, and how those precincts have been grouped into districts. For each district, determine the party that wins and the wasted votes for each party. Then determine the efficiency gap between the two parties over all the districts.
+
+### Input
+
+The input describes one election. The first line contains two integers **P** and **D**, where **1≤P≤10000** and **1≤D≤min(1000,P)**. These indicate, respectively, the number of voting precincts and districts. Following this are **P** lines describing the precincts. Line *i* contains **3** numbers: the district **d<sub>**i**</sub>** that precinct *i* is assigned to **(1≤d<sub>**i**</sub>≤D)**, the number of votes for the candidate from party A **(0≤a<sub>**i**</sub>≤100000)**, and the number of votes for the candidate from party B **(0≤b<sub>**i**</sub>≤100000)**. It is guaranteed that:
+
+- for each precinct *i*, **0<a<sub>**i**</sub>+b<sub>**i**</sub>**,
+
+- each district is assigned at least one precinct, and
+
+- there are no ties within any district.
+
+### Output
+
+For each of the districts from **1** to **D**, print which party wins (a single character, either A or B). Then print the number of wasted votes for party A and for party B, in order. Finally, after reporting on all the districts, print the efficiency gap as measured over all the districts. The efficiency gap should be accurate to within an absolute error of **10<sup>-6</sup>**.
+
+![Image of Output3](/ProblemImages/C2.JPG)
+
+
+## Problem D
+## Missing Numbers
+
+You enjoy your new job as a teacher of young children. It’s fun to see them learning to count, recognize letters, draw, and interact with the world.
+
+One common problem you’ve noticed is that children often forget numbers when counting. For example, early on they might count “one, two, three, five, six.” You have to remind them about that “four” that they didn’t say. And as they get more proficient and clever, they may use the “quick” way of counting: “one, two, skip a few, ninety-nine, one hundred!”
+
+Please write a program that can help you (and your students) identify the missing numbers when they are counting.
+
+### Input
+
+The first line of input contains a single integer **n**, where **1≤n≤100**. Each of the next **n** lines contains one number that the child recited. Each recited number is an integer between **1** and **200** (inclusive). They are listed in increasing order, and there are no duplicates.
+
+### Output
+
+If the child recited all the numbers between **1** and the last number they recited, then print good job.
+
+If the child missed any numbers between **1** and the last number they recited, then print those missing numbers in increasing numeric order, one per line.
+
+![Image of Output4](/ProblemImages/D1.JPG)
